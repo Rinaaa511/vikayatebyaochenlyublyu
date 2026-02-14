@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Для Вики 💙</title>
+
+  <link rel="preconnect" href="https://fonts.cdnfonts.com">
+  <link rel="stylesheet" href="https://fonts-online.ru/fonts/intro">
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+  <style>
+    @font-face {
+      font-family: 'IntroCustom';
+      src: url('ofont.ru_Intro.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+/* ===== SPIDER SECRET ===== */
+.spider-secret{
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+
+.spider-secret.show{
+  opacity: 1;
+}
+
+.web-line{
+  position: absolute;
+  top: 0;
+  width: 3px;
+  height: 0;
+  background: linear-gradient(to bottom, #ffffff, rgba(255,255,255,.3));
+  animation: webDrop 1.2s ease forwards;
+}
+
+@keyframes webDrop{
+  from{ height: 0; }
+  to{ height: 240px; }
+}
+
+.spider-wrapper{
+  position: relative;
+  margin-top: -320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: spiderDrop 1.4s cubic-bezier(.2,.9,.2,1) forwards;
+}
+
+@keyframes spiderDrop{
+  0%{
+    margin-top: -320px;
+    transform: scale(.9);
+    opacity: 0;
+  }
+  70%{
+    margin-top: 200px;
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100%{
+    margin-top: 220px;
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.spider-img{
+  width: 170px;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,.6));
+}
+
+.spider-text{
+  margin-top: 16px;
+  padding: 14px 24px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.25);
+  font-weight: 800;
+  font-size: 22px;
+  opacity: 0;
+  animation: textFade 1s ease 1.2s forwards;
+}
+
+@keyframes textFade{
+  from{ opacity:0; transform: translateY(10px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+  </style>
+
+<style>
+:root{
+      --font-display: 'IntroCustom', sans-serif;
+      --font-body: 'IntroCustom', sans-serif;
+
+      --bg1:#0c1020;
+      --bg2:#120b1c;
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --hot:#ff4fa3;
+      --hot2:#ffb3d7;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --r: 26px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      font-family: 'IntroCustom', sans-serif;
+height:100%}
+    body{
+      margin:0;
+      font-family: var(--font-body); system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 600px at 20% 10%, rgba(255,79,163,.16), transparent 55%),
+        radial-gradient(700px 520px at 80% 30%, rgba(255,179,215,.12), transparent 60%),
+        linear-gradient(160deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    .wrap{
+      width:min(980px, 92vw);
+      margin: 22px auto 42px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      position:relative;
+    }
+
+    .mini-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding: 10px 2px;
+    }
+    .mini-brand{ font-family: var(--font-display); font-weight: 800; letter-spacing:.6px; opacity:.95; }
+
+    .mini-right{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .mini-chip{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(10px);
+      font-weight:700;
+      color: var(--muted);
+    }
+
+    .musicbar{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(10px);
+    }
+    .m-btn{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.20);
+      color: var(--text);
+      padding: 9px 12px;
+      border-radius: 999px;
+      cursor:pointer;
+      font-weight: 900;
+      transition: transform .2s ease, background .2s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .m-btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
+    .m-btn:active{ transform: translateY(0) scale(.99); }
+
+    .m-vol{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .m-vol label{ font-weight:900; font-size: 13px; color: var(--muted); }
+    .m-vol input[type="range"]{ width: 140px; accent-color: var(--hot2); }
+    .m-vol .mval{
+      width: 44px;
+      text-align:right;
+      color: var(--muted);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stage{display:none; animation: pop .35s ease both;}
+    .stage.show{display:block;}
+    @keyframes pop{
+      from{opacity:0; transform: translateY(10px) scale(.99);}
+      to{opacity:1; transform: translateY(0) scale(1);}
+    }
+
+    .card{
+      border-radius: var(--r);
+      border:1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      overflow:hidden;
+      position:relative;
+      z-index: 5;
+    }
+
+    .card-hero{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      align-items:center;
+    }
+    @media (max-width: 860px){ .card-hero{grid-template-columns: 1fr} }
+
+    .h1{
+      margin:0 0 10px;
+      font-family: var(--font-display);
+      font-weight:400;
+      font-size: clamp(36px, 5vw, 54px);
+      line-height:1.05;
+    }
+    .name{color: var(--hot2); text-shadow: 0 10px 30px rgba(255,79,163,.22);}
+
+    .h2{ margin: 6px 0 6px; font-size: 24px; font-weight: 800; font-family: var(--font-display); letter-spacing: .4px; }
+    .h2.big{font-size: 32px;}
+
+    .p{margin: 0 0 14px; line-height: 1.75;}
+    .muted{color: var(--muted);}
+    .tiny{font-size: 13px; margin-top: 10px;}
+
+    .hint{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border:1px dashed rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      margin: 10px 0 14px;
+    }
+
+    .btn{
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.07);
+      color: var(--text);
+      padding: 12px 14px;
+      border-radius: 16px;
+      cursor:pointer;
+      font-weight: 800;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease, opacity .2s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
+    .btn:active{ transform: translateY(0) scale(.99); }
+    .btn[disabled]{ opacity:.45; cursor:not-allowed; transform:none; }
+
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(255,79,163,.85), rgba(255,179,215,.55));
+      border-color: rgba(255,79,163,.35);
+      color: rgba(16,10,18,.95);
+    }
+
+    .nav-row{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      margin-top: 10px;
+      flex-wrap:wrap;
+    }
+
+    .gif-frame{
+      position:relative;
+      border-radius: 22px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      min-height: 320px;
+    }
+    .gif-frame img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter: saturate(1.08) contrast(1.04);
+      transform: scale(1.02);
+    }
+    .gif-badge{
+      position:absolute;
+      left: 14px;
+      bottom: 14px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+      font-weight:800;
+    }
+
+    .mem-grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+      margin-top: 10px;
+    }
+    .mem{
+      grid-column: span 6;
+      border-radius: 20px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      transition: transform .2s ease, background .2s ease;
+    }
+    .mem:hover{ transform: translateY(-2px); background: rgba(255,255,255,.08); }
+    @media (max-width: 860px){ .mem{grid-column: span 12;} }
+    .mem-img img{ width:100%; height: 210px; object-fit: cover; display:block; }
+    .mem-text{ padding: 12px 12px 14px; }
+    .mem-title{ font-weight: 900; margin-bottom: 4px; }
+    .mem-desc{ color: var(--muted); }
+
+    .players{display:flex;flex-direction:column;gap:12px;margin-top: 8px;}
+    .player-card{
+      border-radius: 20px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      padding: 12px 12px;
+    }
+    .player-top{display:flex;align-items:center;justify-content:flex-start;
+      gap:12px;flex-wrap:wrap;margin-bottom: 10px;
+    }
+    .track-name{ font-weight: 900; }
+    .track-meta{ color: var(--muted); font-size: 13px; margin-top: 3px; }
+.ym-iframe{
+      width:100%;height: 135px;border:0;border-radius: 16px;overflow:hidden;
+      display:block;background: rgba(0,0,0,.15);
+    }
+
+    .lock{
+      border-radius: 20px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      padding: 14px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+    .lock .left{min-width: 220px;display:flex;flex-direction:column;gap:6px;}
+    .lock .title{ font-weight: 900; }
+    .lock .sub{ color: var(--muted); font-size: 13px; line-height: 1.6; }
+    .lock .right{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+    .code{
+      width: 160px;padding: 12px 12px;border-radius: 16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: var(--text);outline: none;font-weight: 800;letter-spacing: .6px;
+    }
+    .msg{ color: var(--muted); font-size: 13px; min-height: 18px; }
+    .hidden{ display:none !important; }
+
+    .letter{
+      border-radius: 20px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 14px 14px 2px;
+      line-height: 1.9;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+    .letter p{margin: 0 0 12px;}
+    .sign{ color: var(--text); font-weight: 900; }
+    .soft{ color: #7bd6ff; }
+
+    /* ===== ПОЛЕ ПРИЧИН ===== */
+    .reasons-field{
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none; /* клики сквозь */
+      opacity: 0;
+      transition: opacity .35s ease;
+    }
+    body.reasons-active .reasons-field{ opacity:1; }
+
+    
+
+    /* затемнение всего фона перед 100-й причиной */
+    .reasons-blackout{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.75);
+      z-index: 1;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 2s ease;
+    }
+    .reasons-blackout.show{ opacity: 1; }
+
+/* затемнение — НЕ блокирует кнопки, потому что pointer-events:none */
+    .reasons-dim{
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0,.55);
+      opacity:0;
+      transition: opacity .32s ease; /* плавнее снять фокус */
+      pointer-events:none;
+    }
+    .reasons-field.dim .reasons-dim{ opacity:1; }
+
+    .reason-pill{
+      position:absolute;
+      max-width: min(560px, 88vw);
+      padding: 12px 14px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(20,16,26,.92);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 14px 40px rgba(0,0,0,.28);
+      color: rgba(255,255,255,.95);
+      line-height: 1.5;
+
+      opacity:0;
+      transform: translateY(14px) scale(.985);
+      animation: appearSoft 1.05s cubic-bezier(.2,.85,.2,1) forwards, drift 26s ease-in-out infinite;
+      animation-delay: 0s, 1.05s;
+
+      will-change: transform, opacity;
+      pointer-events: auto; /* кликается */
+      cursor: pointer;
+      user-select:none;
+      z-index: 1;
+      transition: transform .35s ease, opacity .35s ease, filter .35s ease, box-shadow .35s ease; /* <- плавно выйти из фокуса */
+    }
+    .reason-pill b{ color: var(--hot2); font-weight: 900; margin-right: 6px; }
+.reason-pill .mark{ margin-right: 8px; filter: drop-shadow(0 10px 18px rgba(0,0,0,.25)); }
+.reason-pill.special36{
+  /* 36 — синий акцент, но НЕ белая плашка */
+  background: linear-gradient(135deg, rgba(20,16,26,.94), rgba(16,22,38,.94));
+  border-color: rgba(122,194,255,.38);
+  box-shadow: 0 16px 52px rgba(90,165,255,.22), 0 14px 40px rgba(0,0,0,.28);
+}
+.reason-pill.special36 b{ color: rgba(160,220,255,.98); }
+
+.reason-pill.special58{
+  /* 58 — белый акцент (чуть светлее), но без “белой карточки” */
+  background: rgba(20,16,26,.94);
+  border-color: rgba(255,255,255,.45);
+  box-shadow: 0 16px 50px rgba(255,255,255,.08), 0 14px 40px rgba(0,0,0,.28);
+}
+.reason-pill.special58 b{ color: rgba(255,255,255,.96); }
+
+/* исчезновение */
+    .reason-pill.fading{
+      animation: none !important;
+      transition: opacity 10s ease, transform 10s ease;
+      pointer-events:none;
+    }
+
+    .reasons-field.dim .reason-pill{
+      filter: blur(1.7px) brightness(.75);
+      opacity: .55;
+    }
+
+    /* ФОКУС теперь:
+       - держится, пока не кликнешь снова (toggle)
+       - или пока не нажмёшь Esc
+       - или пока не кликнешь в пустое место (по желанию, см. JS) */
+    .reason-pill.focused{
+      z-index: 3 !important;
+      filter: none !important;
+      opacity: 1 !important;
+      transform: translateY(-8px) scale(1.13) !important;
+      box-shadow: 0 26px 95px rgba(0,0,0,.58);
+      animation: none !important;
+    }
+    .reason-pill.focused::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      border-radius: 999px;
+      pointer-events:none;
+      border:1px solid rgba(255,179,215,.35);
+      box-shadow: 0 0 0 1px rgba(255,79,163,.12), 0 0 44px rgba(255,79,163,.18);
+    }
+
+    /* 100-я причина — заметно больше */
+    /* 100-я причина — “финальная открытка” */
+.reason-pill.final100{
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) scale(1.12) !important;
+
+  max-width: min(880px, 94vw);
+  padding: 26px 28px;
+  border-radius: 22px;
+
+  background:
+    radial-gradient(900px 240px at 50% 0%, rgba(122,194,255,.30), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.98), rgba(236,246,255,.96));
+  color: rgba(18,38,62,.95);
+
+  border: 1px solid rgba(122,194,255,.42);
+  box-shadow:
+    0 30px 120px rgba(0,0,0,.58),
+    0 0 0 1px rgba(255,255,255,.55) inset,
+    0 18px 70px rgba(122,194,255,.18);
+
+  font-size: clamp(20px, 3.0vw, 34px);
+  font-weight: 900;
+  letter-spacing: .15px;
+  pointer-events: none;
+  z-index: 4;
+
+  opacity: 0;
+  text-align:center;
+  animation: finalIn 1.1s cubic-bezier(.18,.95,.22,1) forwards;
+}
+
+.reason-pill.final100 b{
+  color: rgba(30,110,175,.86);
+}
+
+.reason-pill.final100::before,
+.reason-pill.final100::after{
+  content:"";
+  position:absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(122,194,255,.55);
+  filter: blur(.2px);
+  opacity: .85;
+}
+.reason-pill.final100::before{ left: 14px; top: 14px; }
+.reason-pill.final100::after{ right: 14px; bottom: 14px; }
+
+@keyframes finalIn{
+  0%{ opacity:0; filter: blur(2px); transform: translate(-50%, -50%) scale(1.02); }
+  70%{ opacity:1; filter: blur(0px); transform: translate(-50%, -50%) scale(1.16); }
+  100%{ opacity:1; transform: translate(-50%, -50%) scale(1.12); }
+}
+    @keyframes appearSoft{
+      0%{
+        opacity:0;
+        transform: translateY(14px) scale(.985);
+        filter: blur(2px);
+      }
+      65%{
+        opacity:1;
+        transform: translateY(0) scale(1);
+        filter: blur(0px);
+      }
+      100%{
+        opacity:1;
+        transform: translateY(0) scale(1);
+        filter: blur(0px);
+      }
+    }
+    @keyframes drift{
+      0%,100%{ transform: translateY(0) translateX(0) scale(1); }
+      50%{ transform: translateY(-10px) translateX(12px) scale(1); }
+    }
+
+    .finale{ text-align:center; padding: 22px 18px; }
+    .photo-wrap{ display:flex; justify-content:center; margin: 14px 0 10px; }
+    .her-photo{
+      width:min(520px, 92vw);
+      border-radius: 26px;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 18px 55px rgba(0,0,0,.35);
+      object-fit: cover;
+      max-height: 520px;
+    }
+    .btn.mega{ padding: 14px 18px; border-radius: 18px; font-size: 16px; }
+
+    .overlay{
+      position:fixed; inset:0; z-index: 1000;
+      display:none; justify-items:center; align-items:start; padding: 24px; overflow-y:auto;
+      background:
+        radial-gradient(800px 500px at 50% 30%, rgba(255,79,163,.22), transparent 60%),
+        rgba(0,0,0,.70);
+      backdrop-filter: blur(10px);
+      opacity:0;
+      transition: opacity .45s ease;
+    }
+    .overlay.show{ display:grid; opacity:1; }
+
+    .overlay-card{
+      width: min(920px, 92vw);
+      border-radius: 28px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(18,12,24,.82);
+            border: 1px solid rgba(180,235,255,.14);
+box-shadow: 0 18px 70px rgba(0,0,0,.55);
+      padding: 24px 18px 18px;
+      text-align:center;
+      transform: translateY(12px) scale(.98);
+      opacity:0;
+    }
+    .overlay.show .overlay-card{ animation: cardIn .85s cubic-bezier(.2,.9,.2,1) forwards; }
+    @keyframes cardIn{
+      0%{ opacity:0; transform: translateY(18px) scale(.97); filter: blur(2px); }
+      70%{ opacity:1; transform: translateY(-2px) scale(1.01); filter: blur(0px); }
+      100%{ opacity:1; transform: translateY(0) scale(1); }
+    }
+
+
+    
+
+    
+    /* ===== СЕВЕРНОЕ СИЯНИЕ (мягко) ===== */
+    .overlay-card{
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* мягкие “ленты” */
+    .overlay-card::before{
+      content: "";
+      position: absolute;
+      inset: -140px;
+      background:
+        radial-gradient(520px 260px at 20% 20%, rgba(0,190,255,.16), transparent 60%),
+        radial-gradient(620px 320px at 80% 30%, rgba(0,255,210,.12), transparent 62%),
+        radial-gradient(520px 280px at 50% 90%, rgba(140,210,255,.12), transparent 60%),
+        linear-gradient(120deg, rgba(0,110,255,.10), rgba(0,255,210,.08), rgba(0,170,255,.10));
+      background-size: 220% 220%;
+      filter: blur(70px);
+      opacity: .55;
+      animation: auroraMove 10s ease-in-out infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* лёгкая вуаль, чтобы текст читался */
+    .overlay-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(800px 420px at 50% 35%, rgba(0,0,0,.22), rgba(0,0,0,.48));
+      z-index: 0;
+      pointer-events:none;
+    }
+
+    @keyframes auroraMove{
+      0%{ background-position: 0% 50%; transform: translateY(10px) rotate(-2deg); }
+      50%{ background-position: 100% 50%; transform: translateY(-10px) rotate(2deg); }
+      100%{ background-position: 0% 50%; transform: translateY(10px) rotate(-2deg); }
+    }
+
+    .overlay-card > *{ position: relative; z-index: 1; }
+    
+.love-big{
+  font-family: 'IntroCustom', sans-serif;
+  font-size: clamp(28px, 4.5vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 12px 0 16px;
+  letter-spacing: .4px;
+  text-transform: none;
+  color: rgba(225, 240, 255, .92);
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+    .overlay.show .love-big{
+      animation: loveIn 0.95s cubic-bezier(.18,.95,.22,1) .08s forwards;
+    }
+    @keyframes loveIn{
+      0%{ opacity:0; transform: translateY(14px) scale(.985); }
+      70%{ opacity:1; transform: translateY(-2px) scale(1.01); }
+      100%{ opacity:1; transform: translateY(0) scale(1); }
+    }
+
+    /* финальная плашка — гармоничнее и “не обычно” */
+    
+.love-big span{
+  position: relative;
+  display:inline-block;
+  padding: 12px 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(180,235,255,.14);
+  box-shadow: 0 18px 50px rgba(0,0,0,.35);
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+}
+
+
+    /* тонкий “шимер” по плашке */
+    .love-big span::before{
+      content:"";
+      position:absolute;
+      top:-40%;
+      left:-60%;
+      width: 60%;
+      height: 180%;
+      background: linear-gradient(90deg, transparent, rgba(210,245,255,.18), transparent);
+      transform: rotate(18deg);
+      animation: shimmer 2.6s ease-in-out infinite;
+      pointer-events:none;
+    }
+
+    @keyframes shimmer{
+      0%{ left:-60%; opacity:0; }
+      25%{ opacity:1; }
+      55%{ opacity:1; }
+      100%{ left:120%; opacity:0; }
+    }
+    .overlay.show .love-big{ animation: textBloom 1.25s cubic-bezier(.15,.95,.15,1) .12s forwards; }
+    @keyframes textBloom{
+      0%{ opacity:0; transform: translateY(14px) scale(.98); letter-spacing: -0.5px; filter: blur(2px); }
+      60%{ opacity:1; transform: translateY(-2px) scale(1.015); letter-spacing: 0.5px; filter: blur(0px); }
+      100%{ opacity:1; transform: translateY(0) scale(1); letter-spacing: 0px; }
+    }
+
+    .overlay-sub{  color: rgba(210,240,255,.68); margin: 0 0 16px;
+      line-height: 1.7;
+      opacity:0;
+      transform: translateY(8px);
+    }
+    .overlay.show .overlay-sub{ animation: fadeUp .9s ease .35s forwards; }
+    @keyframes fadeUp{ to{ opacity:1; transform: translateY(0); } }
+    .bg-hearts{
+      position:fixed; inset:0; pointer-events:none;
+      z-index:-1; overflow:hidden;
+      opacity:.22;
+      transition: opacity .65s ease;
+    }
+    body.reasons-active .bg-hearts{ opacity:0; }
+    .bg-heart{
+      position:absolute;
+      bottom: -40px;
+      opacity:.20;
+      animation: floatUp linear infinite;
+      filter: drop-shadow(0 10px 16px rgba(0,0,0,.25));
+    }
+    @keyframes floatUp{
+      from{ transform: translateY(0); }
+      to{ transform: translateY(-120vh); }
+    }
+
+/* ========== SPIDER SECRET — тонкая паутина + идеальное соединение ========== */
+.spidey-scene {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 520px;
+  margin: 20px auto 30px;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+}
+
+.spidey-group {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-origin: top center;
+}
+
+.spidey-line {
+  position: absolute;
+  left: 50%;
+  top: -48px;
+  width: 2.5px;                    /* тонкая! */
+  height: 0;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, 
+    rgba(255,255,255,0.3), 
+    #ffffff 40%, 
+    #ffffff 70%, 
+    rgba(255,255,255,0.25));
+  box-shadow: 0 0 12px rgba(255,255,255,0.85),
+              0 0 30px rgba(255,255,255,0.4);
+  opacity: 0;
+  z-index: 1;
+}
+
+.spidey-wrapper {
+  position: absolute;
+  left: 55%;
+  top: 0;
+  transform: translateX(-50%) translateY(-300px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  z-index: 2;
+}
+
+.spidey-img {
+  width: 148px;
+  filter: drop-shadow(0 24px 58px rgba(0,0,0,0.78));
+  position: relative;
+}
+
+/* Короткая паутинка — точно соединяет основную линию с пауком */
+.spidey-img::before {
+  content: "";
+  position: absolute;
+  top: -58px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.5px;
+  height: 58px;
+  background: linear-gradient(to bottom, #ffffff, rgba(255,255,255,0.7));
+  box-shadow: 0 0 14px rgba(255,255,255,0.9);
+  z-index: 3;
+}
+
+.spidey-sign {
+  margin-top: 18px;
+  padding: 16px 36px;
+  border-radius: 26px;
+  background: rgba(255,255,255,0.09);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.3);
+  font-weight: 900;
+  font-size: 25px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 3px 15px rgba(0,0,0,0.8);
+  opacity: 0;
+  white-space: nowrap;
+}
+
+/* Анимации */
+.overlay.show.spidey-play .spidey-line {
+  animation: lineGrow 1.70s cubic-bezier(0.25, 0.1, 0.25, 1) 0.05s forwards;
+}
+
+.overlay.show.spidey-play .spidey-wrapper {
+  animation: spiderDrop 1.85s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.12s forwards;
+}
+
+.overlay.show.spidey-play .spidey-sign {
+  animation: textFadeIn 1.1s ease-out 1.35s forwards;
+}
+
+.overlay.show.spidey-play .spidey-group {
+  animation: gentleSwing 6.5s ease-in-out infinite 2.3s;
+}
+
+@keyframes lineGrow {
+  0%   { height: 0; opacity: 0; }
+  28%  { opacity: 1; }
+  100% { height: 340px; opacity: 1; }
+}
+
+@keyframes spiderDrop {
+  0%   { transform: translateX(-50%) translateY(-300px) scale(0.9); opacity: 0; }
+  50%  { transform: translateX(-50%) translateY(230px) scale(1.05); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(258px) scale(1); opacity: 1; }
+}
+
+@keyframes textFadeIn {
+  0%   { opacity: 0; transform: translateY(22px) scale(0.94); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes gentleSwing {
+  0%, 100% { transform: rotate(-1.6deg); }
+  50%      { transform: rotate(1.6deg); }
+}
+
+</style>
+</head>
+
+<body>
+  <div class="bg-hearts" aria-hidden="true"></div>
+
+  <!-- Поле причин -->
+  <div class="reasons-field" id="reasonsField" aria-hidden="true">
+    <div class="reasons-dim" id="reasonsDim"></div>
+  </div>
+
+  <!-- Затемнение перед 100-й причиной -->
+  <div class="reasons-blackout" id="blackout" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <header class="mini-top" id="topHeader">
+      <div class="mini-brand">💕 Наш маленький праздник</div>
+
+      <div class="mini-right">
+        <div class="musicbar" aria-label="Контрол фоновой музыки">
+          <button class="m-btn" id="musicToggle" type="button">▶</button>
+
+          <div class="m-vol">
+            <label for="bgVol">Громкость</label>
+            <input id="bgVol" type="range" min="0" max="100" value="35" />
+            <div class="mval" id="bgVolVal">35%</div>
+          </div>
+        </div>
+
+        <div class="mini-chip" id="stepChip">Шаг 1 из 6</div>
+      </div>
+    </header>
+
+    <!-- ШАГ 1 -->
+    <section class="stage show" id="stage-1">
+      <div class="card card-hero">
+        <div>
+          <h1 class="h1">Привет, <span class="name" id="girlName">любимая</span></h1>
+          <p class="p">Это маленький сайт для тебя, о тебе и о нас. Надеюсь ты улыбнешься<3</p>
+          <div class="hint"><span>❤️</span><span>Со временем сайт буду дополнять новыми воспоминаниями и вкладками, это только начало</span></div>
+          <button class="btn primary nextBtn" type="button">Продолжить →</button>
+        </div>
+
+        <div>
+          <div class="gif-frame">
+            <img src="main.png" />
+            <div class="gif-badge">два котенка💙</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ШАГ 2 -->
+    <section class="stage" id="stage-2">
+      <div class="card">
+        <h2 class="h2">Наши воспоминания и сколько их еще впереди🖤</h2>
+        <p class="p muted">Моменты, которые надеюсь станут вечностью.</p>
+
+        <div class="mem-grid">
+          <article class="mem">
+            <div class="mem-img">
+              <img src="pervoe.png" alt="Воспоминание 1" loading="lazy">
+            </div>
+            <div class="mem-text">
+              <div class="mem-title">команда мечты и самое сильное дуо</div>
+              <div class="mem-desc">Как мы смеялись с Алисы, Ренди, Кристины и прочих. Но после мы проводили каждый день вместе и не могли выйти со звонка обсуждая все, что можно</div>
+            </div>
+          </article>
+
+          <article class="mem">
+            <div class="mem-img">
+              <img src="vtoroe.png" alt="Воспоминание 2" loading="lazy">
+            </div>
+            <div class="mem-text">
+              <div class="mem-title">как я пыталась тебя покорить</div>
+              <div class="mem-desc">Первые ромашки, пионы, 5 пакетов мака и 5 бигхитов, клубника в шоколаде, творчество и это еще самая малость от того, что я сделаю для тебя</div>
+            </div>
+          </article>
+
+          <article class="mem">
+            <div class="mem-img">
+              <img src="trete.png" alt="Воспоминание 3" loading="lazy">
+            </div>
+            <div class="mem-text">
+              <div class="mem-title">Дни и бессонные ночи в дискорде</div>
+              <div class="mem-desc">Мы буквально отлипнуть друг от друга не могли и болтали о всяком, играли часами напролет, смотрели фильмы и аниме, сериалы. Каждый миг с тобой ощущается особенным и любимым</div>
+            </div>
+          </article>
+
+          <article class="mem">
+            <div class="mem-img">
+              <img src="4etvertoe.png" alt="Воспоминание 4" loading="lazy">
+            </div>
+            <div class="mem-text">
+              <div class="mem-title">Наша первая встреча</div>
+              <div class="mem-desc">Я так была рада тебя видеть и наконец обнять, что теперь никогда больше не хочу вылезать из твоих объятий. Столько любви и нежности я никогда не ощущала. Это были самые лучшие полтора суток в моей жизни. И я сделаю всё, лишь бы снова увидеть твою улыбку вживую и как ты мило смущаешься<3
+            </div>
+          </article>
+        </div>
+
+        <div class="nav-row">
+          <button class="btn prevBtn" type="button">← Назад</button>
+          <button class="btn primary nextBtn" type="button">Дальше →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ШАГ 3 -->
+    <section class="stage" id="stage-3">
+      <div class="card">
+        <h2 class="h2">Треки про нас💙</h2>
+        <p class="p muted">Каждый трек окутанный любовью и нежностью</p>
+
+        <div class="players">
+          <div class="player-card">
+            <div class="player-top">
+              <div>
+                <div class="track-name">🌼теплые фильмы</div>
+                <div class="track-meta">Мильковский</div>
+              </div>
+</div>
+            <iframe class="ym-iframe" loading="lazy" src="https://music.yandex.ru/iframe/album/11050514/track/67320491" title="Яндекс Музыка трек 1" allow="autoplay; encrypted-media"></iframe>
+          </div>
+
+          <div class="player-card">
+            <div class="player-top">
+              <div>
+                <div class="track-name">🐾слова иностранца</div>
+                <div class="track-meta">T-Fest</div>
+              </div>
+</div>
+            <iframe class="ym-iframe" loading="lazy" src="https://music.yandex.ru/iframe/album/35698905/track/136837203" title="Яндекс Музыка трек 2" allow="autoplay; encrypted-media"></iframe>
+          </div>
+        
+
+          <div class="player-card">
+            <div class="player-top">
+              <div>
+                <div class="track-name">👭твои руки</div>
+                <div class="track-meta">Гречка</div>
+              </div>
+</div>
+            <iframe class="ym-iframe" loading="lazy" src="https://music.yandex.ru/iframe/album/5962670/track/44445994" title="Яндекс Музыка трек 2" allow="autoplay; encrypted-media"></iframe>
+          </div>
+
+          <div class="player-card">
+            <div class="player-top">
+              <div>
+                <div class="track-name">🐱кусай мои губы</div>
+                <div class="track-meta">Жанулька</div>
+              </div>
+</div>
+            <iframe class="ym-iframe" loading="lazy" src="https://music.yandex.ru/iframe/album/24279206/track/84777587" title="Яндекс Музыка трек 2" allow="autoplay; encrypted-media"></iframe>
+          </div>
+
+          <div class="player-card">
+            <div class="player-top">
+              <div>
+                <div class="track-name">🧸не отдам</div>
+                <div class="track-meta">Lizer</div>
+              </div>
+</div>
+            <iframe class="ym-iframe" loading="lazy" src="https://music.yandex.ru/iframe/album/5695743/track/42939002" title="Яндекс Музыка трек 2" allow="autoplay; encrypted-media"></iframe>
+          </div>
+          <div class="player-card">
+            <div class="player-top">
+              <div>
+                <div class="track-name">🌎планеты-корабли</div>
+                <div class="track-meta">Мильковский</div>
+              </div>
+</div>
+            <iframe class="ym-iframe" loading="lazy" src="https://music.yandex.ru/iframe/album/18955299/track/93851921" title="Яндекс Музыка трек 2" allow="autoplay; encrypted-media"></iframe>
+          </div>
+          <div class="player-card">
+            <div class="player-top">
+              <div>
+                <div class="track-name">🌷цветы</div>
+                <div class="track-meta">темный принц</div>
+              </div>
+</div>
+            <iframe class="ym-iframe" loading="lazy" src="https://music.yandex.ru/iframe/album/36949141/track/139910369" title="Яндекс Музыка трек 2" allow="autoplay; encrypted-media"></iframe>
+          </div>
+          <div class="player-card">
+            <div class="player-top">
+              <div>
+                <div class="track-name">🌑i love you</div>
+                <div class="track-meta">Heroe</div>
+              </div>
+</div>
+            <iframe class="ym-iframe" loading="lazy" src="https://music.yandex.ru/iframe/album/17721023/track/89980582" title="Яндекс Музыка трек 2" allow="autoplay; encrypted-media"></iframe>
+          </div>
+          <div class="player-card">
+            <div class="player-top">
+              <div>
+                <div class="track-name">☀️Свет</div>
+                <div class="track-meta">Теннискорт</div>
+              </div>
+</div>
+            <iframe class="ym-iframe" loading="lazy" src="https://music.yandex.ru/iframe/album/24870988/track/82403434" title="Яндекс Музыка трек 2" allow="autoplay; encrypted-media"></iframe>
+          </div>
+        </div>
+
+        <div class="nav-row">
+          <button class="btn prevBtn" type="button">← Назад</button>
+          <button class="btn primary nextBtn" type="button">Дальше →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ШАГ 4 -->
+    <section class="stage" id="stage-4">
+      <div class="card">
+        <h2 class="h2">Любовь в буквах💌</h2>
+        <p class="p muted">Это откроется только тем, кто знает секретный код))</p>
+
+        <div class="lock" id="lockBox">
+          <div class="left">
+            <div class="title">🔒 Введи секретный код</div>
+            <div class="sub">Подсказка: когда началось наше новое начало.</div>
+            <div class="msg" id="codeMsg"></div>
+          </div>
+
+          <div class="right">
+            <input class="code" id="codeInput" placeholder="например: 0101" inputmode="numeric" />
+            <button class="btn primary" id="codeBtn" type="button">Открыть</button>
+          </div>
+        </div>
+
+        <div id="lockedContent" class="hidden">
+          <div class="letter">
+            <p>Мой котенок</p>
+            <p>я не знаю, как у тебя получается делать обычные дни такими тёплыми. Но я очень хочу, чтобы твое тепло было со мной до конца дней. Каждый миг хочу разделять с тобой и делиться всеми моментами, будь они грустные или радостные, печальные и забавные, трудные или безмятежные. Я нашла свое счастье в твоих нежных глазах, мягких и чуть лохматых волосах, тонких и красивых руках. Хочу каждое утро видеть первым делом тебя спящую, готовить завтрак и целовать сколько захочу, гладить тебя по волосам и спине. Лежать просто вместе, не отвлекаясь ни на что. Дарить тебе цветы и заказывать то, что ты любишь. А когда устанем сидеть дома, то гулять и посетить все твои любимые места вместе. Ради этих моментов и будущего с тобой, я готова сделать всё что угодно. Я очень хочу, чтобы мы прошли через все вместе. </p>
+            <p>Спасибо, что ты есть. Спасибо за твою нежность, за твою улыбку, за твой голос, за твоё “у нас все получится”. Я безумно сильно люблю тебя, больше всего на свете, сильно-сильно и только тебя одну.</p>
+            <p>Я хочу, чтобы у нас было много путешествий, радости, наших маленьких традиций и моментов, которые мы будем вспоминать через года, уже живя вместе.</p>
+            <p class="sign">С огромной любовью, <span class="soft">твоя Рина</span> 💕</p>
+          </div>
+        </div>
+
+        <div class="nav-row">
+          <button class="btn prevBtn" type="button">← Назад</button>
+          <button class="btn primary nextBtn" id="nextLocked" type="button" disabled>Дальше →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ШАГ 5 -->
+    <section class="stage" id="stage-5">
+      <div class="card" id="reasonsCard">
+        <h2 class="h2">100 причин, почему я тебя люблю</h2>
+        <p class="p muted">
+          Их на самом деле намного больше и постоянно появляются новые причины тебя любить, ведь я влюбляюсь в тебя каждый день🤍
+        </p>
+
+        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+          <div class="muted" style="font-size:13px"></div>
+          <div class="mini-chip" id="reasonsCount">0 / 100</div>
+        </div>
+
+        <div class="nav-row">
+          <button class="btn prevBtn" type="button">← Назад</button>
+          <button class="btn primary nextBtn" type="button">Дальше →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ШАГ 6 -->
+    <section class="stage" id="stage-6">
+      <div class="card finale">
+        <h2 class="h2 big">Это ты и ты моё “всё” 💙</h2>
+        <p class="p muted">Я люблю тебя. И всегда буду выбирать тебя.</p>
+
+        <div class="photo-wrap">
+          <img class="her-photo" id="herPhoto"
+               src="herphoto.png"
+               alt="Её фотография" loading="lazy" />
+        </div>
+
+        <button class="btn primary mega" id="secretBtn" type="button">Хочешь секрет? </button>
+        <p class="p tiny muted">нажми и будет мини прикол</p>
+
+        <div class="nav-row" style="justify-content:center; margin-top: 14px;">
+          <button class="btn prevBtn" type="button">← Назад</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<!-- Оверлей секрета -->
+<div class="overlay" id="loveOverlay" aria-hidden="true">
+  <div class="overlay-card">
+
+    <div class="spidey-scene">
+      <div class="spidey-group">
+        <div class="spidey-line"></div>
+
+        <div class="spidey-wrapper">
+          <img class="spidey-img" 
+               src="spider.png" 
+               alt="Паучок 💗">
+          
+          <div class="spidey-sign">
+            Я тебя очень очень очень очень сильно люблю
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="overlay-sub">Правда-правда. Сильно-сильно. Это мой выборкаждый день. Ты мой дом, где бы мы не были</p>
+    <button class="btn" id="closeOverlay" type="button">Закрыть</button>
+
+  </div>
+</div>
+
+  <audio id="bgMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+  <script>
+    const GIRL_NAME = "Котенок";
+    const SECRET_CODE = "0101";
+
+    const REASONS_100 = [
+      "Ты моя девушка","Твоя улыбка лучшее, что меня обрадует","Я люблю твой голос","Ты всегда умеешь поддержать",
+      "Ты настоящая","Ты умеешь быть нежной","Ты самая сильная","С тобой спокойно","С тобой всегда интересно","Ты вдохновляешь меня",
+      "Ты умеешь заботиться","Ты умеешь слушать","Я люблю твой смех","Мне нравится, как ты смотришь на мир","Ты безумно красивая",
+      "Ты очень умная","Ты самая добрая","Ты внимательная к мелочам","Ты умеешь быть рядом","Рядом с тобой я чувствую дом",
+      "Мне нравится твоё чувство юмора","Ты делаешь мир теплее","Ты умеешь радоваться простому","Ты очень мило смущаешься","Ты ведёшь меня к лучшему",
+      "Ты чувствуешь глубже чем остальные","Ты честная","Ты умеешь прощать и никогда не обижаешься","Ты умеешь любить","Ты всегда выбираешь добро",
+      "Ты заботишься о себе, жаль не всегда","Ты умеешь быть собой","Ты делаешь меня смелее","Ты учишь меня любить","Ты делаешь меня счастливее с каждым днем",
+      "Ты создаешь уют везде","Ты можешь сделать праздник из обычного дня","У тебя крутой музыкальный вкус","Ты очень вкусно пахнешь","Ради тебя я готова на все",
+      "Я люблю твои глаза","Я люблю твои руки","Мне нравится твоя искренность","Мне нравится то как ты рассказываешь","Ты прекрасна во всех смыслах",
+      "Мне нравится, как ты часто меня понимаешь без слов","Мне нравится, как ты стараешься","Мне нравится, как ты веришь","Мне нравится, как ты меня обнимаешь","Ты заботишься о близких",
+      "Ты причина, почему я полюбила эту зиму","От твоих \"ты моя\" всегда екает","С тобой я учусь всему","Мне нравится, как ты меня любишь","Мне нравится твоё спокойствие",
+      "Ты мой самый нежный секрет","Мне нравится, как ты говоришь \"котенок\", \"зай\" и я улыбаюсь","Мне нравится, как ты выбираешь слова","Мне нравится тишина рядом с тобой","Мне нравится, как ты веришь в нас",
+      "Ты умеешь делать меня счастливой одним сообщением","Мне нравится, как ты меня ждешь","Мне нравится, что ты не сдаёшься","Ты делаешь мою жизнь полной","С тобой я верю, что всё будет хорошо",
+      "Ты — мой котёнок","С тобой я счастлива","Твои голосовые сообщения я могу слушать часами","Когда ты рядом, мир становится мягче","Мне нравится, что ты не боишься чувств",
+      "Мне нравится, что ты живая","Мне нравится, что ты нежная даже когда устала","Ты моя любимая причина просыпаться","Мне нравится, как ты мило злишься","Ты всегда знаешь, когда мне плохо",
+      "С тобой я хочу быть лучше каждый день","Мне нравится, что ты видишь хорошее","Мне нравится, что ты признаёшь ошибки","Мне нравится, что ты умеешь начинать заново","Ты моя любимая причина улыбаться телефону",
+      "Ты умеешь любить так, что это чувствуется на расстоянии","С тобой я чувствую себя нужной","С тобой даже 10 часов в дискорде пролетают как мгновение","С тобой я хочу собирать все наши маленькие традиции","Ты мой самый любимый повод не спать по ночам",
+      "С тобой я научилась ценить каждый миг","Мне нравится, что ты принимаешь меня такой какая я есть","Мне нравится, что ты заботишься о нас","Ты умеешь любить так, что это лечит от всего","Когда ты рядом мне все кажется мелким",
+      "С тобой я чувствую себя в безопасности","Мне нравится, что ты - это ты","Ты моя Вика","Ты мой самый любимый повод улыбаться","Мне нравится, что ты мой выбор каждый день",
+      "Мне нравится, что ты мой свет","Мне нравится, что ты мой дом","Мне нравится с тобой мечтать","Мне нравится, что я люблю именно тебя",
+      "Потому что я выбираю тебя снова и снова"
+    ];
+
+    document.getElementById("girlName").textContent = GIRL_NAME;
+
+    // ===== Фоновые сердечки =====
+    const heartsWrap = document.querySelector(".bg-hearts");
+    const HEARTS = ["💗","💖","💞","💕","💘","❤️","💙","🤍","🖤"];
+    let heartsTimer = null;
+
+    function spawnHeart(){
+      if (!heartsWrap) return;
+      // На шаге причин не создаём, чтобы не мешало
+      if (document.body.classList.contains("reasons-active")) return;
+
+      const el = document.createElement("span");
+      el.className = "bg-heart";
+      el.textContent = HEARTS[Math.floor(Math.random() * HEARTS.length)];
+
+      const size = 14 + Math.random() * 26; // px
+      const left = Math.random() * 100;     // vw
+      const dur  = 10 + Math.random() * 16; // s
+
+      el.style.left = left + "vw";
+      el.style.fontSize = size + "px";
+      el.style.animationDuration = dur + "s";
+      el.style.opacity = (0.10 + Math.random() * 0.18).toFixed(2);
+
+      heartsWrap.appendChild(el);
+      setTimeout(() => el.remove(), (dur + 0.5) * 1000);
+    }
+
+    function startHearts(){
+      if (heartsTimer) return;
+      // небольшая плотность, чтобы было нежно
+      heartsTimer = setInterval(spawnHeart, 650);
+      // пара сердечек сразу
+      for (let i=0;i<6;i++) setTimeout(spawnHeart, i*180);
+    }
+
+    function stopHearts(clearAll){
+      if (heartsTimer){ clearInterval(heartsTimer); heartsTimer = null; }
+      if (clearAll && heartsWrap){
+        heartsWrap.querySelectorAll(".bg-heart").forEach(h => h.remove());
+      }
+    }
+
+    // запускаем на старте
+    startHearts();
+
+    // ===== Шаги =====
+    const totalSteps = 6;
+    let currentStep = 1;
+    const stepChip = document.getElementById("stepChip");
+    const stages = [...document.querySelectorAll(".stage")];
+
+    // ===== Причины =====
+    const reasonsField = document.getElementById("reasonsField");
+    const blackout = document.getElementById("blackout");
+    const reasonsCount = document.getElementById("reasonsCount");
+    const reasonsCard = document.getElementById("reasonsCard");
+    const topHeader = document.getElementById("topHeader");
+
+    let reasonsTimer = null;
+    let stopSpawning = false;
+
+
+
+    const MAX_ON_SCREEN = 16;
+    const START_DELAY_MS = 2600;
+    const SPAWN_INTERVAL_MS = 2400;
+    const SPAWN_JITTER_MS = 600;
+    const FINAL_FADE_MS = 4500;
+
+    const LIFE_BEFORE_FADE_MS = 26000;
+    const FADE_DURATION_MS = 10000;
+
+    const placed = [];
+    function nextDelay(){
+      return SPAWN_INTERVAL_MS + Math.floor(Math.random() * SPAWN_JITTER_MS);
+    }
+
+    function scheduleSpawn(delay){
+      if (reasonsTimer) clearTimeout(reasonsTimer);
+      reasonsTimer = setTimeout(() => {
+        if (stopSpawning) return;
+        spawnReason();
+        if (!stopSpawning) scheduleSpawn(nextDelay());
+      }, delay);
+    }
+    let reasonsIndex = 0;
+    let reasonsShuffled = [];
+    let focusedEl = null;
+
+
+    function shuffle(arr){
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function rectsOverlap(a, b){
+      return !(a.x + a.w <= b.x || b.x + b.w <= a.x || a.y + a.h <= b.y || b.y + b.h <= a.y);
+    }
+
+    function getForbiddenRects(){
+      const rects = [];
+      const headerRect = topHeader?.getBoundingClientRect();
+      if (headerRect) rects.push({ x:0, y:0, w: window.innerWidth, h: Math.min(window.innerHeight, headerRect.bottom + 18) });
+
+      if (reasonsCard && document.body.classList.contains("reasons-active")) {
+        const r = reasonsCard.getBoundingClientRect();
+        const pad = 18;
+        rects.push({
+          x: Math.max(0, r.left - pad),
+          y: Math.max(0, r.top - pad),
+          w: Math.min(window.innerWidth, r.width + pad*2),
+          h: Math.min(window.innerHeight, r.height + pad*2),
+        });
+      }
+      return rects;
+    }
+
+    function findPosition(pw, ph){
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      const pad = 14;
+
+      const forbidden = getForbiddenRects();
+      const headerBottom = topHeader?.getBoundingClientRect().bottom || 0;
+      const safeTop = Math.max(90, headerBottom + 22);
+
+      for (let attempt = 0; attempt < 170; attempt++){
+        let left = pad + Math.random() * Math.max(1, (w - pw - pad*2));
+        let top  = safeTop + Math.random() * Math.max(1, (h - safeTop - ph - pad));
+
+        left += (Math.random()*10 - 5);
+        top  += (Math.random()*10 - 5);
+
+        left = Math.max(pad, Math.min(left, w - pw - pad));
+        top  = Math.max(safeTop, Math.min(top,  h - ph - pad));
+
+        const cand = { x:left, y:top, w:pw, h:ph };
+
+        let bad = false;
+        for (const fr of forbidden){
+          if (rectsOverlap(cand, fr)) { bad = true; break; }
+        }
+        if (bad) continue;
+
+        let ok = true;
+        for (const r of placed){
+          if (rectsOverlap(cand, r)) { ok = false; break; }
+        }
+        if (ok) return { left, top };
+      }
+
+      return {
+        left: pad + Math.random() * Math.max(1, (w - pw - pad*2)),
+        top:  safeTop + Math.random() * Math.max(1, (h - safeTop - ph - pad)),
+      };
+    }
+
+    function setDim(on){
+      reasonsField.classList.toggle("dim", !!on);
+    }
+
+    function focus(el){
+      if (!el || !el.isConnected) return;
+
+      // toggle: если нажали на уже сфокусированную — снять
+      if (focusedEl === el){
+        unfocus(true);
+        return;
+      }
+
+      // снять предыдущую
+      if (focusedEl) unfocus(false);
+
+      focusedEl = el;
+      setDim(true);
+      el.classList.add("focused");
+    }
+
+    function unfocus(smooth){
+      if (!focusedEl) { setDim(false); return; }
+      // плавность выхода уже в CSS transition у .reason-pill
+      focusedEl.classList.remove("focused");
+      focusedEl = null;
+      setDim(false);
+    }
+
+    // Выйти из фокуса:
+    // - повторный клик по причине (toggle)
+    // - Esc
+    // - клик по карточкам/кнопкам тоже работает, потому что overlay НЕ перехватывает клики
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") unfocus(true);
+    });
+
+    // Плавное исчезновение (не трогать сфокусированную)
+    function softFadeOut(el){
+      if (!el || !el.isConnected) return;
+      if (el.classList.contains("final100")) return;
+      if (el === focusedEl) return; // пока в фокусе — не исчезает
+
+      const cs = getComputedStyle(el);
+      el.style.opacity = cs.opacity;
+      el.style.transform = cs.transform === "none" ? "translateY(0) scale(1)" : cs.transform;
+      el.style.animation = "none";
+      void el.offsetWidth;
+
+      requestAnimationFrame(() => {
+        if (!el.isConnected) return;
+        el.classList.add("fading");
+        el.style.opacity = "0";
+        el.style.transform = "translateY(10px) scale(0.985)";
+        setTimeout(() => {
+          if (!el.isConnected) return;
+          const pid = el.dataset.pid;
+          const idx = placed.findIndex(r => r._id === pid);
+          if (idx >= 0) placed.splice(idx, 1);
+          el.remove();
+        }, FADE_DURATION_MS + 350);
+      });
+    }
+
+    function removeOldestSoft(){
+      const pills = [...reasonsField.querySelectorAll(".reason-pill:not(.final100)")];
+      // не удаляем сфокусированную
+      const candidate = pills.find(p => p !== focusedEl);
+      if (!candidate) return;
+      softFadeOut(candidate);
+    }
+
+    function spawnFinal100(){
+      // затемнить весь фон перед финалом
+      if (blackout) blackout.classList.add("show");
+      // спустя время затемнение спадёт
+      setTimeout(() => blackout.classList.remove("show"), FINAL_FADE_MS + 4200);
+
+      // плавно убрать все причины (кроме возможной финальной)
+      const pills = [...reasonsField.querySelectorAll(".reason-pill:not(.final100)")];
+
+      pills.forEach(el => {
+        el.style.animation = "none";
+        el.style.transition = `opacity ${FINAL_FADE_MS}ms ease, transform ${FINAL_FADE_MS}ms ease`;
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px) scale(.95)";
+        el.style.pointerEvents = "none";
+      });
+
+      // снять фокус и затемнение "dim"
+      unfocus(true);
+
+      // дождаться, пока всё исчезнет, затем показать 100-ю
+      setTimeout(() => {
+        pills.forEach(el => el.remove());
+
+        const el = document.createElement("div");
+        el.className = "reason-pill final100";
+        el.innerHTML = `<b>100.</b> я тебя люблю за то что ты это ты`;
+        reasonsField.appendChild(el);
+      }, FINAL_FADE_MS + 120);
+    }
+
+    function spawnReason(){
+      // 100-я особая
+      if (reasonsIndex === 99) {
+        reasonsIndex++;
+        reasonsCount.textContent = `${reasonsIndex} / 100`;
+        spawnFinal100();
+        stopSpawning = true;
+        if (reasonsTimer) { clearTimeout(reasonsTimer); reasonsTimer = null; }
+        return;
+      }
+
+      if (reasonsIndex >= 99) return;
+
+      const current = reasonsField.querySelectorAll(".reason-pill:not(.final100)").length;
+      if (current >= MAX_ON_SCREEN) removeOldestSoft();
+
+      const el = document.createElement("div");
+      el.className = "reason-pill";
+      const n = reasonsIndex + 1;
+      if (n === 36){
+        el.classList.add("special36");
+      } else if (n === 58){
+        el.classList.add("special58");
+      }
+      el.innerHTML = `<b>${n}.</b>${reasonsShuffled[reasonsIndex]}`;
+
+      reasonsField.appendChild(el);
+      const rect = el.getBoundingClientRect();
+      const pw = rect.width;
+      const ph = rect.height;
+
+      const pos = findPosition(pw, ph);
+      el.style.left = pos.left + "px";
+      el.style.top  = pos.top  + "px";
+
+      const driftDur = 20 + Math.random() * 22;
+      el.style.animationDuration = `2.4s, ${driftDur}s`;
+
+      el.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        focus(el);
+      });
+
+      const pid = String(Date.now()) + "_" + String(Math.random()).slice(2);
+      el.dataset.pid = pid;
+      placed.push({ x: pos.left, y: pos.top, w: pw, h: ph, _id: pid });
+
+      setTimeout(() => softFadeOut(el), LIFE_BEFORE_FADE_MS);
+
+      reasonsIndex++;
+      reasonsCount.textContent = `${reasonsIndex} / 100`;
+    }
+
+    function clearReasons(){
+      stopSpawning = true;
+      if (reasonsTimer){ clearTimeout(reasonsTimer); reasonsTimer = null; }
+      unfocus(true);
+      if (blackout) blackout.classList.remove("show");
+      reasonsField.querySelectorAll(".reason-pill").forEach(el => el.remove());
+      placed.length = 0;
+      reasonsIndex = 0;
+      reasonsCount.textContent = `0 / 100`;
+    }
+
+    function startReasons(){
+      clearReasons();
+      stopSpawning = false;
+      reasonsShuffled = shuffle(REASONS_100);
+      // небольшая пауза перед стартом, чтобы не выглядело как спам
+      scheduleSpawn(START_DELAY_MS);
+    }
+
+    function showStep(n){
+      currentStep = Math.max(1, Math.min(6, n));
+      stages.forEach((s, i) => s.classList.toggle("show", i === (currentStep - 1)));
+      stepChip.textContent = `Шаг ${currentStep} из 6`;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      if (currentStep === 5){
+        document.body.classList.add("reasons-active");
+        startReasons();
+      } else {
+        document.body.classList.remove("reasons-active");
+        clearReasons();
+        if (blackout) blackout.classList.remove("show");
+      }
+    }
+
+    // === УЛУЧШЕННЫЙ ОБРАБОТЧИК КЛИКОВ (работает по тексту тоже) ===
+    document.addEventListener("click", (e) => {
+      const nextBtn = e.target.closest(".nextBtn");
+      const prevBtn = e.target.closest(".prevBtn");
+
+      if (nextBtn) {
+        showStep(currentStep + 1);
+      }
+      if (prevBtn) {
+        showStep(currentStep - 1);
+      }
+    });
+
+    // ===== Фоновая музыка =====
+    const bgMusic = document.getElementById("bgMusic");
+    const musicToggle = document.getElementById("musicToggle");
+    const bgVol = document.getElementById("bgVol");
+    const bgVolVal = document.getElementById("bgVolVal");
+
+    bgMusic.volume = Number(bgVol.value) / 100;
+    bgVolVal.textContent = `${bgVol.value}%`;
+
+    let musicOn = false;
+    async function setMusic(on){
+      musicOn = on;
+      if (musicOn){
+        try{
+          await bgMusic.play();
+          musicToggle.textContent = "⏸";
+        }catch(e){
+          musicOn = false;
+          musicToggle.textContent = "▶";
+          alert("Браузер может блокировать звук. Нажми кнопку ещё раз 🙂");
+        }
+      } else {
+        bgMusic.pause();
+        musicToggle.textContent = "▶";
+      }
+    }
+    musicToggle.addEventListener("click", () => setMusic(!musicOn));
+    bgVol.addEventListener("input", () => {
+      const v = Number(bgVol.value);
+      bgMusic.volume = v / 100;
+      bgVolVal.textContent = `${v}%`;
+    });
+
+    // ===== Секретный код =====
+    const lockBox = document.getElementById("lockBox");
+    const lockedContent = document.getElementById("lockedContent");
+    const codeInput = document.getElementById("codeInput");
+    const codeBtn = document.getElementById("codeBtn");
+    const codeMsg = document.getElementById("codeMsg");
+    const nextLocked = document.getElementById("nextLocked");
+
+    function tryUnlock(){
+      const val = (codeInput.value || "").trim();
+      if (val === SECRET_CODE){
+        codeMsg.textContent = "Открыто 💗";
+        lockBox.classList.add("hidden");
+        lockedContent.classList.remove("hidden");
+        nextLocked.disabled = false;
+      } else {
+        codeMsg.textContent = "Почти… попробуй ещё раз 🙂";
+      }
+    }
+    codeBtn.addEventListener("click", tryUnlock);
+    codeInput.addEventListener("keydown", (e) => { if (e.key === "Enter") tryUnlock(); });
+
+    // ===== Оверлей секрета =====
+    const secretBtn = document.getElementById("secretBtn");
+    const loveOverlay = document.getElementById("loveOverlay");
+    const closeOverlay = document.getElementById("closeOverlay");
+
+    function openSecret(){
+      if (!loveOverlay) return;
+      loveOverlay.classList.add("show");
+      loveOverlay.setAttribute("aria-hidden","false");
+
+      // перезапуск анимации “Человек-паук на паутине”
+      loveOverlay.classList.remove("spidey-play");
+      void loveOverlay.offsetWidth; // reflow
+      loveOverlay.classList.add("spidey-play");
+    }
+
+    function closeSecret(){
+      if (!loveOverlay) return;
+      loveOverlay.classList.remove("show");
+      loveOverlay.classList.remove("spidey-play");
+      loveOverlay.setAttribute("aria-hidden","true");
+    }
+
+    secretBtn?.addEventListener("click", openSecret);
+    closeOverlay?.addEventListener("click", closeSecret);
+
+    loveOverlay?.addEventListener("click", (e) => {
+      if (e.target === loveOverlay) closeSecret();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && loveOverlay?.classList.contains("show")) closeSecret();
+    });
+</script>
+</body>
+</html>
